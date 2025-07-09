@@ -27,3 +27,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 }
 
+console.log("Calling from:", twilioNumber)
+
+
