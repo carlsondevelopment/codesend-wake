@@ -1,0 +1,10 @@
+{
+  "name": "codesend-wake",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "twilio": "^4.0.0"
+  }
+}
+
