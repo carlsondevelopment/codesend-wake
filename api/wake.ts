@@ -14,19 +14,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).send('Missing phone number')
   }
 
+  console.log("🔔 [wake.ts] Calling from:", twilioNumber)
+  console.log("📞 [wake.ts] Calling to:", number)
+
   try {
     await client.calls.create({
       to: number,
       from: twilioNumber,
       twiml: '<Response><Pause length="5"/></Response>',
     })
+
+    console.log("✅ [wake.ts] Call placed successfully")
     res.status(200).send('Call placed')
   } catch (err) {
-    console.error('Twilio error:', err)
+    console.error('❌ [wake.ts] Twilio error:', err)
     res.status(500).send('Failed to call')
   }
 }
 
-console.log("Calling from:", twilioNumber)
 
 
