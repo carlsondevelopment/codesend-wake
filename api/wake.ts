@@ -21,7 +21,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await client.calls.create({
       to: number,
       from: twilioNumber,
-      twiml: '<Response><Pause length="2"/></Response>',
+      timeout: 2, // Ring for 2 seconds max
+      twiml: '<Response><Hangup/></Response>', // Immediately hang up if answered
     })
 
     console.log("✅ [wake.ts] Call placed successfully")
@@ -31,6 +32,3 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(500).send('Failed to call')
   }
 }
-
-
-
