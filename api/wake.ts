@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await client.calls.create({
       to: number,
       from: twilioNumber,
-      timeout: 2, // Ring for 2 seconds max
+      timeout: 5, // Ring for 5 seconds max
       twiml: '<Response><Hangup/></Response>', // Immediately hang up if answered
     })
 
