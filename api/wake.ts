@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await client.calls.create({
       to: number,
       from: twilioNumber,
-      twiml: '<Response><Pause length="5"/></Response>',
+      twiml: '<Response><Pause length="2"/></Response>',
     })
 
     console.log("✅ [wake.ts] Call placed successfully")
